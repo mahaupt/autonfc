@@ -15,7 +15,7 @@ if __name__ == '__main__':
   # start video / open webcam
   cap = cv2.VideoCapture(0)
   time.sleep(3)
-  if cap:
+  if cap.isOpened():
     print("webcam opened")
   else:
     print("error: could not open webcam")

@@ -28,7 +28,7 @@ if __name__ == '__main__':
   else:
     print("error: could not open nfc reader")
     exit(-1)
-  #ReaderUISignal(1, 2)
+  ReaderUISignal(1, 2)
 
   # main loop
   lastDetected = ""
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     data, err = getQRData(img)
     if err:
       ReaderUISignal(4, 0)
-      break
+      continue
 
     # write nfc
     if data and data != lastDetected:
@@ -52,9 +52,9 @@ if __name__ == '__main__':
       lastDetectedTimeout = 10
       if InitCard():
         if WriteNFC(data):
-          ReaderUISignal(1, 0) #1success
+          ReaderUISignal(1, 1) #success
           continue
-      ReaderUISignal(2, 0) #4failed
+      ReaderUISignal(2, 4) #failed
     else:
       lastDetectedTimeout -= 1
       if lastDetectedTimeout <= 0:

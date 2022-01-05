@@ -5,8 +5,8 @@ touch "/etc/modprobe.d/ftdi.conf"
 echo "blacklist ftdi_sio" >> "/etc/modprobe.d/ftdi.conf"
 echo "blacklist usbserial" >> "/etc/modprobe.d/ftdi.conf"
 
-usermod -a -G dialout marcel
-usermod -a -G video marcel
+usermod -a -G dialout ubuntu
+usermod -a -G video ubuntu
 
 apt install python3 python3-pip libgl1 libzbar0
 pip install -r requirements.txt
